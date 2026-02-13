@@ -2,7 +2,9 @@ services:
     caforum.sidebar.listener:
         class: caforum\sidebar\event\listener
         arguments:
-            - '%core.root_path%'
+            - '@config'
             - '@template'
+            - '%core.root_path%'
         tags:
             - { name: event.listener }
+
