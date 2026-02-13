@@ -11,21 +11,22 @@ namespace caforum\sidebar\migrations;
 
 class install_sidebar_config extends \phpbb\db\migration\migration
 {
-	public function effectively_installed()
-	{
-		return isset($this->config['sidebar_link1_name']);
-	}
+    public function effectively_installed()
+    {
+        return isset($this->config['sidebar_link1_name']);
+    }
 
-	public function update_data()
-	{
-		$data = [];
+    public function update_data()
+    {
+        $data = [];
 
-		for ($i = 1; $i <= 5; $i++)
-		{
-			$data[] = ['config.add', ["sidebar_link{$i}_name", '']];
-			$data[] = ['config.add', ["sidebar_link{$i}_url", '']];
-		}
+        for ($i = 1; $i <= 5; $i++)
+        {
+            $data[] = ['config.add', ["sidebar_link{$i}_name", '']];
+            $data[] = ['config.add', ["sidebar_link{$i}_url", '']];
+        }
 
-		return $data;
-	}
+        return $data;
+    }
 }
+
