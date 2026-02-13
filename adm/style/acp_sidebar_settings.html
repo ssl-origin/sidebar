@@ -1,0 +1,30 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_SIDEBAR_SETTINGS') }}</h1>
+<p>{{ lang('ACP_SIDEBAR_SETTINGS_EXPLAIN') }}</p>
+
+<form id="acp_sidebar" method="post" action="{{ U_ACTION }}">
+	<fieldset>
+		<legend>{{ lang('SIDEBAR_LINKS_CONFIG') }}</legend>
+		
+		{% for link in loops.links %}
+		<dl>
+			<dt><label for="link_text_{{ link.ID }}">{{ lang('LINK_TEXT') }} {{ link.ID }}:</label></dt>
+			<dd><input type="text" id="link_text_{{ link.ID }}" name="link_text_{{ link.ID }}" value="{{ link.TEXT }}" maxlength="255" size="40" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="link_url_{{ link.ID }}">{{ lang('LINK_URL') }} {{ link.ID }}:</label></dt>
+			<dd><input type="text" id="link_url_{{ link.ID }}" name="link_url_{{ link.ID }}" value="{{ link.URL }}" maxlength="255" size="40" /></dd>
+		</dl>
+		<hr />
+		{% endfor %}
+
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+			{{ S_FORM_TOKEN }}
+		</p>
+	</fieldset>
+</form>
+
+{% include 'overall_footer.html' %}
