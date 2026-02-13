@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Add a sidebar on the left of the forum.",
     "homepage": "https://forums.caforum.fr",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "time": "2026-02-12",
     "keywords": ["phpbb", "extension", "sidebar"],
     "license": "GPL-2.0-only",
@@ -13,7 +13,13 @@
             "homepage": "https://forums.caforum.fr",
             "email": "contact@caforum.fr",
             "role": "Extension Developer"
-        }  
+        },
+        {
+            "name": " Chico Gois",
+            "homepage": "https://mundophpbb.com.br/suporte/",
+            "email": "chicogois@gmail.com",
+            "role": "Co-Extension Developer"
+        }          
     ],
     "require": {
         "php": ">=7.2.0",
