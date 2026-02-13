@@ -1,58 +1,38 @@
 <div class="extension-main-wrapper">
     <aside class="forumsidebar">
-
         <h2 class="sidebartitle">{{ lang('SIDELINKS') }}</h2>
-
-        {% if sidebar_links %}
         <ul>
-            <!-- BEGIN sidebar_links -->
-                <li>
-                    <a href="{sidebar_links.URL}">
-                        {sidebar_links.NAME}
-                    </a>
-                </li>
-            <!-- END sidebar_links -->
+            {% for link in loops.sidebar_links %}
+                <li><a href="{{ link.LINK_URL }}">{{ link.LINK_TEXT }}</a></li>
+            {% endfor %}
         </ul>
-        {% endif %}
 
         <h2 class="sidebartitle">{{ lang('SIDEBOARD') }}</h2>
         <ul>
             {% if not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) %}
-                {% if S_DISPLAY_MEMBERLIST %}
-                    <li><a href="{{ U_MEMBERLIST }}">{{ lang('MEMBERLIST') }}</a></li>
-                {% endif %}
-                {% if U_TEAM %}
-                    <li><a href="{{ U_TEAM }}">{{ lang('THE_TEAM') }}</a></li>
-                {% endif %}
+                {% if S_DISPLAY_MEMBERLIST %}<li><a href="{{ U_MEMBERLIST }}">{{ lang('MEMBERLIST') }}</a></li>{% endif %}
+                {% if U_TEAM %}<li><a href="{{ U_TEAM }}">{{ lang('THE_TEAM') }}</a></li>{% endif %}
             {% endif %}
-
             <li><a href="{{ U_FAQ }}">{{ lang('FAQ') }}</a></li>
-
             {% if S_REGISTERED_USER %}
                 <li><a href="{{ U_PROFILE }}">{{ lang('PROFILE') }}</a></li>
                 <li><a href="{{ U_LOGIN_LOGOUT }}">{{ CURRENT_USERNAME_SIMPLE }} [ {{ lang('LOGIN_LOGOUT') }} ]</a></li>
             {% elseif not S_IS_BOT %}
                 <li><a href="{{ U_LOGIN_LOGOUT }}">{{ lang('LOGIN_LOGOUT') }}</a></li>
-                {% if S_REGISTER_ENABLED %}
-                    <li><a href="{{ U_REGISTER }}">{{ lang('REGISTER') }}</a></li>
-                {% endif %}
+                {% if S_REGISTER_ENABLED %}<li><a href="{{ U_REGISTER }}">{{ lang('REGISTER') }}</a></li>{% endif %}
             {% endif %}
         </ul>
 
         {% if S_DISPLAY_SEARCH %}
         <h2 class="sidebartitle">{{ lang('SEARCH') }}</h2>
         <ul>
-            {% if S_REGISTERED_USER %}
-                <li><a href="{{ U_SEARCH_SELF }}">{{ lang('SEARCH_SELF') }}</a></li>
-            {% endif %}
-            {% if S_USER_LOGGED_IN %}
-                <li><a href="{{ U_SEARCH_NEW }}">{{ lang('SEARCH_NEW') }}</a></li>
-            {% endif %}
+            {% if S_REGISTERED_USER %}<li><a href="{{ U_SEARCH_SELF }}">{{ lang('SEARCH_SELF') }}</a></li>{% endif %}
+            {% if S_USER_LOGGED_IN %}<li><a href="{{ U_SEARCH_NEW }}">{{ lang('SEARCH_NEW') }}</a></li>{% endif %}
             <li><a href="{{ U_SEARCH_UNANSWERED }}">{{ lang('SEARCH_UNANSWERED') }}</a></li>
             <li><a href="{{ U_SEARCH }}">{{ lang('SEARCH') }}</a></li>
         </ul>
         {% endif %}
-
     </aside>
-
+    
     <div class="forum-content-right">
+    {# Le contenu natif de phpBB va s'injecter ici #}
