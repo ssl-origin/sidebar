@@ -39,4 +39,10 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'SIDELINKS'				=> 'Liens',
 	'SIDEBOARD'				=> 'Forum',
+	'SIDEBAR'               => 'Sidebar',
+	'SIDEBAR_SETTINGS'      => 'Paramètres de la Sidebar',
+	'SIDEBAR_LINKS'         => 'Liens personnalisés',
+	'SIDEBAR_LINK_NAME'     => 'Nom du lien',
+	'SIDEBAR_LINK_URL'      => 'URL du lien',
+	'SIDEBAR_SAVED'         => 'Configuration sauvegardée avec succès.',
 ));
