@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - phpBB Sidebar
-* @copyright (c) 2024 Fred Rimbert https://forums.caforum.fr/
+* @copyright (c) 2026 Fred Rimbert https://forums.caforum.fr/
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -24,25 +24,8 @@ if (empty($lang) || !is_array($lang))
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
-// Placeholders can now contain order information, e.g. instead of
-// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
-// translators to re-order the output of data while ensuring it remains correct
-//
-// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
-// equally where a string contains only two placeholders which are used to wrap text
-// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
-//
-// Some characters you may want to copy&paste:
-// ’ « » “ ” …
-//
-
 $lang = array_merge($lang, array(
-	'SIDELINKS'				=> 'Liens',
-	'SIDEBOARD'				=> 'Forum',
-	'SIDEBAR'               => 'Sidebar',
-	'SIDEBAR_SETTINGS'      => 'Paramètres de la Sidebar',
-	'SIDEBAR_LINKS'         => 'Liens personnalisés',
-	'SIDEBAR_LINK_NAME'     => 'Nom du lien',
-	'SIDEBAR_LINK_URL'      => 'URL du lien',
-	'SIDEBAR_SAVED'         => 'Configuration sauvegardée avec succès.',
+	'ACP_SIDEBAR_TITLE'				=> 'Sidebar',
+	'SIDELINKS'						=> 'Liens utiles',
+	'SIDEBOARD'						=> 'Forum',
 ));
