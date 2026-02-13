@@ -17,8 +17,6 @@ class sidebar_module
     {
         global $config, $request, $template, $user;
 
-        $user->add_lang_ext('caforum/sidebar', 'common');
-
         $this->tpl_name = 'acp_sidebar';
         $this->page_title = 'SIDEBAR_SETTINGS';
 
@@ -26,7 +24,10 @@ class sidebar_module
 
         if ($request->is_set_post('submit'))
         {
-            if (!check_form_key('caforum_sidebar')) trigger_error('FORM_INVALID');
+            if (!check_form_key('caforum_sidebar'))
+            {
+                trigger_error('FORM_INVALID');
+            }
 
             for ($i = 1; $i <= 5; $i++)
             {
