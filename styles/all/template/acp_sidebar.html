@@ -1,43 +1,27 @@
 {% INCLUDE 'overall_header.html' %}
 
-<h1>{{ lang('SIDEBAR_SETTINGS') }}</h1>
-
 <form id="acp_sidebar" method="post" action="{{ U_ACTION }}">
+    <fieldset>
+        <legend>{{ lang('SIDEBAR_LINKS') }}</legend>
 
-	<fieldset>
-		<legend>{{ lang('SIDEBAR_LINKS') }}</legend>
+        {% for i in 1..5 %}
+        <dl>
+            <dt><label>{{ lang('SIDEBAR_LINK_NAME') }} {{ i }}</label></dt>
+            <dd><input type="text" name="sidebar_link{{ i }}_name"
+                       value="{{ attribute(_context, 'SIDEBAR_LINK' ~ i ~ '_NAME') }}" size="40" /></dd>
+        </dl>
+        <dl>
+            <dt><label>{{ lang('SIDEBAR_LINK_URL') }} {{ i }}</label></dt>
+            <dd><input type="text" name="sidebar_link{{ i }}_url"
+                       value="{{ attribute(_context, 'SIDEBAR_LINK' ~ i ~ '_URL') }}" size="60" /></dd>
+        </dl>
+        {% endfor %}
 
-		{% for i in 1..5 %}
-		<dl>
-			<dt>
-				<label>{{ lang('SIDEBAR_LINK_NAME') }} {{ i }}</label>
-			</dt>
-			<dd>
-				<input type="text" name="sidebar_link{{ i }}_name"
-					value="{{ attribute(_context, 'SIDEBAR_LINK' ~ i ~ '_NAME') }}"
-					class="inputbox" size="40" />
-			</dd>
-		</dl>
-
-		<dl>
-			<dt>
-				<label>{{ lang('SIDEBAR_LINK_URL') }} {{ i }}</label>
-			</dt>
-			<dd>
-				<input type="text" name="sidebar_link{{ i }}_url"
-					value="{{ attribute(_context, 'SIDEBAR_LINK' ~ i ~ '_URL') }}"
-					class="inputbox" size="60" />
-			</dd>
-		</dl>
-		{% endfor %}
-
-	</fieldset>
-
-	<fieldset class="submit-buttons">
-		{{ S_FORM_TOKEN }}
-		<input type="submit" name="submit" value="{{ lang('SUBMIT') }}" class="button1" />
-	</fieldset>
-
+    </fieldset>
+    <fieldset class="submit-buttons">
+        {{ S_FORM_TOKEN }}
+        <input type="submit" name="submit" value="{{ lang('SUBMIT') }}" class="button1" />
+    </fieldset>
 </form>
 
 {% INCLUDE 'overall_footer.html' %}
