@@ -6,53 +6,44 @@
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
+
 namespace caforum\sidebar\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
-* Event listener
-*/
 class listener implements EventSubscriberInterface
 {
-/**
-* Assign functions defined in this class to event listeners in the core
-*
-* @return array
-* @static
-* @access public
-*/
-	static public function getSubscribedEvents()
-	{
-		return array(
-			'core.user_setup'	=> 'load_language_on_setup',
-		);
-	}
-
 	/** @var \phpbb\template\template */
 	protected $template;
 
-	//** @var string phpbb_root_path */
+	/** @var \phpbb\config\config */
+	protected $config;
+
+	/** @var string */
 	protected $phpbb_root_path;
 
-	/**
-	* Constructor
-	*/
-	public function __construct($phpbb_root_path, \phpbb\template\template $template)
+	public function __construct(
+		\phpbb\config\config $config,
+		\phpbb\template\template $template,
+		$phpbb_root_path
+	)
 	{
-		$this->phpbb_root_path = $phpbb_root_path;
+		$this->config = $config;
 		$this->template = $template;
+		$this->phpbb_root_path = $phpbb_root_path;
 	}
-	/**
-	* @param array $event
-	*/
+
+	static public function getSubscribedEvents()
+	{
+		return [
+			'core.user_setup' => 'load_language_on_setup',
+			'core.page_header' => 'assign_sidebar_links',
+		];
+	}
+
 	public function load_language_on_setup($event)
 	{
 		$lang_set_ext = $event['lang_set_ext'];
 		$lang_set_ext[] = [
 			'ext_name' => 'caforum/sidebar',
-			'lang_set' => 'common',
-		];
-		$event['lang_set_ext'] = $lang_set_ext;
-	}
-}
+			'lang_set' => 'commo_
