@@ -1,0 +1,31 @@
+{
+    "name": "caforum/sidebar",
+    "type": "phpbb-extension",
+    "description": "Add a sidebar on the left of the forum.",
+    "homepage": "https://forums.caforum.fr",
+    "version": "1.0.0",
+    "time": "2026-02-12",
+    "keywords": ["phpbb", "extension", "sidebar"],
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Fred Rimbert",
+            "homepage": "https://forums.caforum.fr",
+            "email": "contact@caforum.fr",
+            "role": "Extension Developer"
+        }  
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "phpBB Sidebar",
+        "soft-require": {
+            "phpbb/phpbb": "~3.3"
+        }
+    }
+}
