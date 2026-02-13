@@ -1,4 +1,4 @@
-<?php<?php
+<?php
 /**
 *
 * @package phpBB Extension - phpBB Sidebar
