@@ -11,32 +11,41 @@ namespace caforum\sidebar\acp;
 
 class sidebar_module
 {
-    public $u_action;
+	public $u_action;
 
-    function main($id, $mode)
-    {
-        global $config, $request, $template, $user;
+	function main($id, $mode)
+	{
+		global $config, $request, $template, $user;
 
-        $this->tpl_name = 'acp_sidebar';
-        $this->page_title = 'Sidebar Settings';
+		$user->add_lang_ext('caforum/sidebar', 'common');
 
-        if ($request->is_set_post('submit'))
-        {
-            for ($i = 1; $i <= 5; $i++)
-            {
-                set_config("sidebar_link{$i}_name", $request->variable("sidebar_link{$i}_name", ''));
-                set_config("sidebar_link{$i}_url", $request->variable("sidebar_link{$i}_url", ''));
-            }
+		$this->tpl_name = 'acp_sidebar';
+		$this->page_title = 'SIDEBAR_SETTINGS';
 
-            trigger_error('Configuration saved' . adm_back_link($this->u_action));
-        }
+		add_form_key('caforum_sidebar');
 
-        for ($i = 1; $i <= 5; $i++)
-        {
-            $template->assign_vars([
-                "SIDEBAR_LINK{$i}_NAME" => $config["sidebar_link{$i}_name"],
-                "SIDEBAR_LINK{$i}_URL"  => $config["sidebar_link{$i}_url"],
-            ]);
-        }
-    }
+		if ($request->is_set_post('submit'))
+		{
+			if (!check_form_key('caforum_sidebar'))
+			{
+				trigger_error('FORM_INVALID');
+			}
+
+			for ($i = 1; $i <= 5; $i++)
+			{
+				set_config("sidebar_link{$i}_name", $request->variable("sidebar_link{$i}_name", '', true));
+				set_config("sidebar_link{$i}_url", $request->variable("sidebar_link{$i}_url", '', true));
+			}
+
+			trigger_error($user->lang('SIDEBAR_SAVED') . adm_back_link($this->u_action));
+		}
+
+		for ($i = 1; $i <= 5; $i++)
+		{
+			$template->assign_vars([
+				"SIDEBAR_LINK{$i}_NAME" => $config["sidebar_link{$i}_name"] ?? '',
+				"SIDEBAR_LINK{$i}_URL"  => $config["sidebar_link{$i}_url"] ?? '',
+			]);
+		}
+	}
 }
