@@ -1,0 +1,8 @@
+services:
+    caforum.sidebar.listener:
+        class: caforum\sidebar\event\listener
+        arguments:
+            - '%core.root_path%'
+            - '@template'
+        tags:
+            - { name: event.listener }
