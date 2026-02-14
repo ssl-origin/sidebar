@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - phpBB Sidebar
-* @copyright (c) 2024 Fred Rimbert https://forums.caforum.fr/
+* @copyright (c) 2026 Fred Rimbert https://forums.caforum.fr/
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
