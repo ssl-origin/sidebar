@@ -14,22 +14,22 @@ class v1_0_0 extends \phpbb\db\migration\migration
     public function update_data()
     {
         return [
-            // Configs com defaults
-            ['config.add', ['caforum_sidebar_text_1', 'Lien personnalisé']],
-            ['config.add', ['caforum_sidebar_url_1', '#']],
-            ['config.add', ['caforum_sidebar_text_2', 'Lien personnalisé']],
-            ['config.add', ['caforum_sidebar_url_2', '#']],
-            ['config.add', ['caforum_sidebar_text_3', 'Lien personnalisé']],
-            ['config.add', ['caforum_sidebar_url_3', '#']],
-            ['config.add', ['caforum_sidebar_text_4', 'Lien personnalisé']],
-            ['config.add', ['caforum_sidebar_url_4', '#']],
-            ['config.add', ['caforum_sidebar_text_5', 'Lien personnalisé']],
-            ['config.add', ['caforum_sidebar_url_5', '#']],
+            // Configs with defaults
+            ['config.add', ['caforum_sidebar_text_1', '']],
+            ['config.add', ['caforum_sidebar_url_1', '']],
+            ['config.add', ['caforum_sidebar_text_2', '']],
+            ['config.add', ['caforum_sidebar_url_2', '']],
+            ['config.add', ['caforum_sidebar_text_3', '']],
+            ['config.add', ['caforum_sidebar_url_3', '']],
+            ['config.add', ['caforum_sidebar_text_4', '']],
+            ['config.add', ['caforum_sidebar_url_4', '']],
+            ['config.add', ['caforum_sidebar_text_5', '']],
+            ['config.add', ['caforum_sidebar_url_5', '']],
 
-            // Cria a aba dedicada no sidebar esquerdo (parent 0 = aba top level)
-            ['module.add', ['acp', 0, 'ACP_SIDEBAR_TITLE']],
+            // directly add your title in the "Extensions" tab
+            ['module.add', ['acp', 'ACP_CAT_DOT_MODS', 'ACP_SIDEBAR_TITLE']],
 
-            // Adiciona o modo settings dentro dessa aba
+            // Add the settings mode within this tab
             ['module.add', [
                 'acp',
                 'ACP_SIDEBAR_TITLE',
@@ -45,7 +45,7 @@ class v1_0_0 extends \phpbb\db\migration\migration
     public function revert_data()
     {
         return [
-            // Remove na ordem inversa
+            // Remove in reverse order
             ['module.remove', [
                 'acp',
                 'ACP_SIDEBAR_TITLE',
