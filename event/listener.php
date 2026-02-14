@@ -44,7 +44,7 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	* Carrega os arquivos de linguagem da extensão
+	* Loads the extension language files
 	*/
 	public function load_language_on_setup($event)
 	{
@@ -57,17 +57,17 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	* Envia os links do banco de dados para o template da sidebar
+	* Sends the database links to the sidebar template
 	*/
 	public function assign_sidebar_links($event)
 	{
-		// Percorre os 5 links salvos na config
+		// Scroll through the 5 saved links in config
 		for ($i = 1; $i <= 5; $i++)
 		{
 			$text = $this->config['caforum_sidebar_text_' . $i];
 			$url  = $this->config['caforum_sidebar_url_' . $i];
 
-			// Só envia para o template se o texto do link não estiver vazio
+			// Only sends to the template if the link text is not empty
 			if ($text)
 			{
 				$this->template->assign_block_vars('sidebar_links', [
