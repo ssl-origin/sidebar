@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - phpBB Sidebar
-* @copyright (c) 2024 Fred Rimbert https://forums.caforum.fr/
+* @copyright (c) 2026 Fred Rimbert https://forums.caforum.fr/
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -20,7 +20,7 @@ class main_info
                 'settings' => [
                     'title' => 'ACP_SIDEBAR_SETTINGS',
                     'auth'  => 'ext_caforum/sidebar && acl_a_board',
-                    'cat'   => [],  // <--- Ouvre directement dans l’onglet « Extensions » (sans onglet personnalisé)
+                    'cat'   => ['ACP_SIDEBAR_TITLE'],  // <--- Opens directly in the " Extensions " tab (without custom tab)
                 ],
             ],
         ];
