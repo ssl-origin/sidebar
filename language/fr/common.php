@@ -25,7 +25,8 @@ if (empty($lang) || !is_array($lang))
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
 $lang = array_merge($lang, array(
-	'ACP_SIDEBAR_TITLE'				=> 'Sidebar',
-	'SIDELINKS'						=> 'Liens utiles',
-	'SIDEBOARD'						=> 'Forum',
+	'ACP_SIDEBAR_TITLE'	       => 'phpBB Sidebar',
+	'ACP_SIDEBAR_SETTINGS'	   => 'Paramètres des liens',
+	'SIDELINKS'			       => 'Liens utiles',
+	'SIDEBOARD'			       => 'Forum',    
 ));
