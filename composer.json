@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Add a sidebar on the left of the forum.",
     "homepage": "https://forums.caforum.fr",
-    "version": "1.2.1",
-    "time": "2026-02-12",
+    "version": "1.2.2",
+    "time": "2026-02-19",
     "keywords": ["phpbb", "extension", "sidebar"],
     "license": "GPL-2.0-only",
     "authors": [
