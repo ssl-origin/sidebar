@@ -1,0 +1,92 @@
+.extension-main-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.forumsidebar {
+    flex: 0 0 170px; 
+    background: transparent;
+    padding: 15px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    /* --- Option Scroll "Sticky" --- */
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 10px; 
+    max-height: calc(100vh - 20px); 
+    overflow-y: auto; 
+}
+
+.forum-content-right {
+    flex: 1; 
+    min-width: 0; 
+}
+
+.sidebartitle {
+    font-size: 1.2em;
+    border-bottom: 2px solid #105289;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.forumsidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+/* Sidebar lists */
+.forumsidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+/* Links */
+.forumsidebar ul li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out; 
+    border-left: 3px solid transparent; 
+    margin-bottom: 2px;
+}
+
+/* Hover Effect */
+.forumsidebar ul li a:hover { 
+    color: #eee; 
+    padding-left: 18px; 
+    border-left: 3px solid #105289; 
+}
+
+/* Section title */
+.sidebartitle {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #105289;
+    margin: 15px 0 10px 0;
+    border-color: hsl(222, 25%, 41%) hsl(222, 25%, 41%) hsl(222, 25%, 41%) hsl(222, 37%, 58%);
+    border-style: solid;
+    border-width: 1px 1px 1px 3px;
+    padding: .25rem;
+}
+
+/* --- Mobile (Hide Sidebar) --- */
+@media (max-width: 900px) { 
+    .forumsidebar {
+        display: none !important; 
+    }
+
+    .extension-main-wrapper {
+        display: block; 
+    }
+
+    .forum-content-right {
+        width: 100%; 
+    }
+}
